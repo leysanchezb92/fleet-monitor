@@ -49,7 +49,7 @@ export default function MapView({ position }) {
             <MapContainer
                 center={hasPosition?[position.latitude, position.longitude]:defaultCenter}
                 zoom={15}
-                style={{ height:'100%', width:'100%' }}
+                className="h-full w-full"
                 scrollWheelZoom={true}
                 aria-label="Map view showing the selected vehicle's location"
             >

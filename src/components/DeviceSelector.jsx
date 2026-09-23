@@ -1,24 +1,10 @@
 export default function DeviceSelector({ devices, selectedDevice, onSelect }) {
   return (
     <section
-      aria-label="Selector de vehículo"
-      style={{
-        backgroundColor: 'var(--color-surface)',
-        border: '1px solid var(--color-border)',
-        borderRadius: '12px',
-        padding: '16px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '12px',
-      }}
+      aria-label="Vehicle active selector"
+      className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-4 flex flex-col gap-3"
     >
-      <h2 style={{
-        fontSize: '11px',
-        fontWeight: '600',
-        textTransform: 'uppercase',
-        letterSpacing: '0.1em',
-        color: 'var(--color-text-secondary)',
-      }}>
+      <h2 className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[var(--color-text-secondary)]">
         Active vehicles
       </h2>
       <select
@@ -27,20 +13,10 @@ export default function DeviceSelector({ devices, selectedDevice, onSelect }) {
           const device = devices.find(d => d.id === Number(e.target.value));
           onSelect(device);
         }}
-        aria-label="Selecciona un vehículo para monitorear"
-        style={{
-          width: '100%',
-          padding: '10px 12px',
-          borderRadius: '8px',
-          fontSize: '14px',
-          backgroundColor: 'var(--color-input-bg)',
-          color: 'var(--color-text-primary)',
-          border: '1px solid var(--color-border)',
-          cursor: 'pointer',
-          outline: 'none',
-        }}
+        aria-label="Select a vehicle to view its status"
+        className="w-full px-3 py-[10px] rounded-lg text-sm bg-[var(--color-input-bg)] text-[var(--color-text-primary)] border border-[var(--color-border)] cursor-pointer outline-none"
       >
-        <option value="" disabled>Selecciona un vehículo...</option>
+        <option value="" disabled>Select a vehicle</option>
         {devices.map((device) => (
           <option key={device.id} value={device.id}>
             {device.name}
@@ -49,8 +25,8 @@ export default function DeviceSelector({ devices, selectedDevice, onSelect }) {
       </select>
 
       {selectedDevice && (
-        <p style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>
-          ID: <span style={{ fontFamily: 'monospace', color: 'var(--color-accent)' }}>
+        <p className="text-xs text-[var(--color-text-secondary)]">
+          ID: <span className="font-mono text-[var(--color-accent)]">
             {selectedDevice.id}
           </span>
         </p>
