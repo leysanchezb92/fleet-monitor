@@ -45,7 +45,7 @@ export default function MapView({ position }) {
     const defaultCenter = [4.711, -74.0721];
     const hasPosition = position?.latitude && position?.longitude;
     return (
-        <div style={{ height:'100%', borderRadius:'12px', overflow:'hidden', border:'1px solid var(--color-border)' }}>
+        <div className="h-full rounded-lg overflow-hidden border border-[var(--color-border)]">
             <MapContainer
                 center={hasPosition?[position.latitude, position.longitude]:defaultCenter}
                 zoom={15}

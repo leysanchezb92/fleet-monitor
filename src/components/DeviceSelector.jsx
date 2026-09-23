@@ -19,9 +19,8 @@ export default function DeviceSelector({ devices, selectedDevice, onSelect }) {
         letterSpacing: '0.1em',
         color: 'var(--color-text-secondary)',
       }}>
-        Vehículos activos
+        Active vehicles
       </h2>
-
       <select
         value={selectedDevice?.id ?? ''}
         onChange={(e) => {
