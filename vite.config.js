@@ -9,7 +9,7 @@ const __dirname = dirname(__filename)
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/fleet-monitor/',
+  base: '/',
   server: {
     proxy: {
       '/api': {
