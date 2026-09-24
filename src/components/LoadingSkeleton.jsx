@@ -13,7 +13,7 @@ export default function LoadingSkeleton() {
       <aside
         role="status"
         aria-label="Charging vehicles and status information loading"
-        className="flex flex-col gap-4 w-[320px] shrink-0"
+        className="flex flex-col gap-4 w-full shrink-0"
       >
         <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-4 flex flex-col gap-3">
           <SkeletonBlock className="h-3 w-[120px]" />
