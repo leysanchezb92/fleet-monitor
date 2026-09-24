@@ -27,41 +27,65 @@ export default function App() {
       className="h-screen min-h-screen flex flex-col bg-[var(--color-bg)] text-[var(--color-text-primary)] transition-colors duration-300 ease-in-out"
     >
       <header
-        className="flex items-center justify-between px-6 py-4 border-b border-[var(--color-border)] bg-[var(--color-surface)]"
+        className="flex items-center justify-between px-6 py-4 shrink-0"
+        style={{
+          borderBottom: '1px solid var(--color-border)',
+          backgroundColor: 'var(--color-surface)',
+        }}
       >
         <div className="flex items-center gap-3">
           <span className="text-lg font-bold text-[var(--color-text-primary)]">
             Fleet Monitor
           </span>
-          <span
-            className="text-xs px-2 py-0.5 rounded-full font-medium bg-[color-mix(in_srgb,var(--color-accent)_15%,transparent)] text-[var(--color-accent)]"
-          >
+          <span className="text-xs px-2 py-0.5 rounded-full font-medium
+      bg-[var(--color-accent)]/10 text-[var(--color-accent)]">
             Live
           </span>
         </div>
-        <div class="flex items-center gap-2">
-          <span className="text-[11px] font-bold tracking-[0.08em] transition-colors duration-300 text-[var(--color-accent)] dark:text-[var(--color-text-secondary)]">
-            LIGHT MODE
+        <div className="flex items-center gap-2">
+          <span className={`hidden sm:inline-block text-[11px] font-semibold tracking-widest
+      transition-colors duration-300
+      ${!darkMode ? 'text-[var(--color-accent)]' : 'text-[var(--color-text-secondary)]'}`}>
+            LIGHT
           </span>
           <button
             onClick={() => setDarkMode(!darkMode)}
-            aria-label={darkMode ? 'Change to light mode' : 'Change to dark mode'}
+            aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             aria-checked={darkMode}
             role="switch"
-            className="w-[56px] h-[28px] rounded-full border border-[var(--color-border)] bg-[var(--color-input-bg)] cursor-pointer flex items-center p-[3px] transition-colors duration-300 relative"
+            className="relative w-14 h-7 rounded-full border border-[var(--color-border)]
+        bg-[var(--color-input-bg)] cursor-pointer outline-none
+        focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]
+        transition-colors duration-300"
           >
-            <svg className="absolute left-[6px] opacity-100 dark:opacity-40 transition-opacity duration-300" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <svg
+              width="14" height="14" viewBox="0 0 24 24" fill="none"
+              aria-hidden="true"
+              className={`absolute left-1.5 top-1/2 -translate-y-1/2 transition-opacity duration-300
+          ${darkMode ? 'opacity-40' : 'opacity-100'}`}
+            >
               <circle cx="12" cy="12" r="5" stroke="var(--color-text-primary)" strokeWidth="1.5" />
-              <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="var(--color-text-primary)" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+                stroke="var(--color-text-primary)" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
-            <svg className="absolute right-[6px] opacity-40 dark:opacity-100 transition-opacity duration-300" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="var(--color-text-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <svg
+              width="14" height="14" viewBox="0 0 24 24" fill="none"
+              aria-hidden="true"
+              className={`absolute right-1.5 top-1/2 -translate-y-1/2 transition-opacity duration-300
+          ${darkMode ? 'opacity-100' : 'opacity-40'}`}
+            >
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
+                stroke="var(--color-text-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <div className={`w-[22px] h-[22px] rounded-full bg-[var(--color-accent)] shrink-0 transition-transform duration-300 ${darkMode ? 'translate-x-[28px]' : 'translate-x-0'
-              }`} />
+            <div className={`absolute top-0.5 w-6 h-6 rounded-full bg-[var(--color-accent)]
+        transition-transform duration-300
+        ${darkMode ? 'translate-x-7' : 'translate-x-0.5'}`}
+            />
           </button>
-          <span className="text-[11px] font-bold tracking-[0.08em] transition-colors duration-300 text-[var(--color-text-secondary)] dark:text-[var(--color-accent)]">
-            DARK MODE
+          <span className={`hidden sm:inline-block text-[11px] font-semibold tracking-widest
+      transition-colors duration-300
+      ${darkMode ? 'text-[var(--color-accent)]' : 'text-[var(--color-text-secondary)]'}`}>
+            DARK
           </span>
         </div>
       </header>

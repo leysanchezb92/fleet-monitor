@@ -79,14 +79,14 @@ export default function DeviceSelector({ devices, selectedDevice, onSelect }) {
             aria-hidden="true"
             className={`shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
           >
-            <path d="M6 9l6 6 6-6" stroke="var(--color-text-secondary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M6 9l6 6 6-6" stroke="var(--color-text-secondary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
         {isOpen && (
           <ul
             role="listbox"
             aria-label="List of vehicles"
-            className="absolute top-[calc(100%+6px)] left-0 right-0 z-50
+            className="absolute top-[calc(100%+6px)] left-0 right-0 z-[9999]
               bg-[var(--color-surface)] border border-[var(--color-border)]
               rounded-xl p-1.5 flex flex-col gap-0.5
               shadow-[0_8px_24px_rgba(0,0,0,0.15)]"
@@ -113,7 +113,7 @@ export default function DeviceSelector({ devices, selectedDevice, onSelect }) {
                   <span>{device.name}</span>
                   {isSelected && (
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                      <path d="M20 6L9 17l-5-5" stroke="var(--color-accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M20 6L9 17l-5-5" stroke="var(--color-accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   )}
                 </li>
