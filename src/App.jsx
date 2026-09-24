@@ -39,22 +39,31 @@ export default function App() {
             Live
           </span>
         </div>
-        <button
-          onClick={() => setDarkMode(!darkMode)}
-          aria-label={darkMode ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
-          className="w-9 h-9 rounded-lg flex items-center justify-center hover:opacity-80 transition-opacity bg-[var(--color-input-bg)] text-[var(--color-text-primary)]"
-        >
-          {darkMode ? (
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <div class="flex items-center gap-2">
+          <span className="text-[11px] font-bold tracking-[0.08em] transition-colors duration-300 text-[var(--color-accent)] dark:text-[var(--color-text-secondary)]">
+            LIGHT MODE
+          </span>
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            aria-label={darkMode ? 'Change to light mode' : 'Change to dark mode'}
+            aria-checked={darkMode}
+            role="switch"
+            className="w-[56px] h-[28px] rounded-full border border-[var(--color-border)] bg-[var(--color-input-bg)] cursor-pointer flex items-center p-[3px] transition-colors duration-300 relative"
+          >
+            <svg className="absolute left-[6px] opacity-100 dark:opacity-40 transition-opacity duration-300" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <circle cx="12" cy="12" r="5" stroke="var(--color-text-primary)" strokeWidth="1.5" />
               <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="var(--color-text-primary)" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
-          ) : (
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <svg className="absolute right-[6px] opacity-40 dark:opacity-100 transition-opacity duration-300" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="var(--color-text-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          )}
-        </button>
+            <div className={`w-[22px] h-[22px] rounded-full bg-[var(--color-accent)] shrink-0 transition-transform duration-300 ${darkMode ? 'translate-x-[28px]' : 'translate-x-0'
+              }`} />
+          </button>
+          <span className="text-[11px] font-bold tracking-[0.08em] transition-colors duration-300 text-[var(--color-text-secondary)] dark:text-[var(--color-accent)]">
+            DARK MODE
+          </span>
+        </div>
       </header>
       <main className="flex flex-col md:flex-row gap-4 p-4 flex-1 min-h-0">
         {status === 'loading' && <LoadingSkeleton />}
