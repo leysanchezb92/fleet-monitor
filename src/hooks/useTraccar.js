@@ -42,6 +42,7 @@ export function useTraccar() {
 
   useEffect(() => {
     if (!selectedDevice) return;
+    setPosition(null);
     fetchPosition(selectedDevice.id);
     pollingRef.current = setInterval(() => {
       fetchPosition(selectedDevice.id);
