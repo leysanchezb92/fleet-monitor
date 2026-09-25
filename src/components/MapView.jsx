@@ -20,12 +20,12 @@ const vehicleIcon = (course = 0, darkMode = false) => L.divIcon({
     <div style="transform: rotate(${course}deg); transition: transform 0.8s ease;" aria-hidden="true">
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="16" cy="16" r="14" 
-          fill="${darkMode ? '#ffffff' : '#38BDF8'}" 
+          fill="${darkMode ? '#ffffff' : '#1D4ED8'}" 
           fill-opacity="0.15" 
-          stroke="${darkMode ? '#ffffff' : '#38BDF8'}" 
+          stroke="${darkMode ? '#ffffff' : '#1D4ED8'}" 
           stroke-width="1.5"/>
         <path d="M16 6 L21 22 L16 19 L11 22 Z" 
-          fill="${darkMode ? '#ffffff' : '#38BDF8'}"/>
+          fill="${darkMode ? '#ffffff' : '#1D4ED8'}"/>
       </svg>
     </div>
   `,
