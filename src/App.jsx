@@ -34,11 +34,16 @@ export default function App() {
         }}
       >
         <div className="flex items-center gap-3">
+          <img
+            src="https://www.google.com/s2/favicons?domain=www.simonmovilidad.com&sz=64"
+            alt="Logo"
+            className={`w-8 h-8 rounded-lg border border-[var(--color-border)] p-1 shrink-0 shadow-sm ${darkMode ? 'bg-[var(--color-surface)]' : 'bg-white'}`}
+          />
           <span className="text-lg font-bold text-[var(--color-text-primary)]">
             Fleet Monitor
           </span>
           <span className="text-xs px-2 py-0.5 rounded-full font-medium
-      bg-[var(--color-accent)]/10 text-[var(--color-accent)]">
+    bg-[var(--color-accent)]/10 text-[var(--color-accent)]">
             Live
           </span>
         </div>
