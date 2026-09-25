@@ -62,21 +62,21 @@ export default function App() {
               width="12" height="12" viewBox="0 0 24 24" fill="none"
               aria-hidden="true"
               className={`absolute left-1 top-1/2 -translate-y-1/2 transition-opacity duration-300
-      ${darkMode ? 'opacity-40' : 'opacity-100'}`}
+      ${darkMode ? 'opacity-80' : 'opacity-100'}`}
             >
-              <circle cx="12" cy="12" r="5" stroke="var(--color-text-primary)" strokeWidth="1.5" />
+              <circle cx="12" cy="12" r="5" stroke="var(--color-text-secondary)" strokeWidth="1.5" />
               <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
-                stroke="var(--color-text-primary)" strokeWidth="1.5" strokeLinecap="round" />
+                stroke="var(--color-text-secondary)" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
 
             <svg
               width="12" height="12" viewBox="0 0 24 24" fill="none"
               aria-hidden="true"
               className={`absolute right-1 top-1/2 -translate-y-1/2 transition-opacity duration-300
-      ${darkMode ? 'opacity-100' : 'opacity-40'}`}
+      ${darkMode ? 'opacity-100' : 'opacity-80'}`}
             >
               <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
-                stroke="var(--color-text-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                stroke="var(--color-text-secondary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
 
             <div className={`absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-[var(--color-accent)]
@@ -97,8 +97,11 @@ export default function App() {
           <ErrorState message={error} onRetry={retry} />
         )}
         {status === 'ready' && (
-          <>
-            <aside className="flex flex-col gap-4 w-full shrink-0 md:max-w-[320px]">
+          <div
+            className="flex flex-col md:flex-row gap-4 flex-1 min-h-0 w-full"
+            style={{ animation: 'fadeIn 0.4s ease' }}
+          >
+            <aside className="flex flex-col gap-4 w-full md:max-w-[320px] shrink-0">
               <DeviceSelector
                 devices={devices}
                 selectedDevice={selectedDevice}
@@ -111,10 +114,11 @@ export default function App() {
                 />
               )}
             </aside>
-            <div className="flex-1 min-w-[300px] min-h-[400px]">
-              <MapView position={position} />
+
+            <div className="flex-1 min-h-0" style={{ minHeight: '400px' }}>
+              <MapView position={position} darkMode={darkMode} />
             </div>
-          </>
+          </div>
         )}
       </main>
     </div>
