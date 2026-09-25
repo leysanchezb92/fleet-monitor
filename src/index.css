@@ -71,3 +71,13 @@ body {
   .animate-skeleton-9 { animation: skeleton-wave 1.8s ease-in-out 1.35s infinite; }
 }
 
+@layer utilities {
+  .map-dark {
+    filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9);
+    transition: filter 0.3s ease;
+  }
+  .map-light {
+    filter: none;
+    transition: filter 0.3s ease;
+  }
+}
