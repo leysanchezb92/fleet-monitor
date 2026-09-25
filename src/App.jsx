@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { useTraccar } from '@/hooks/useTraccar';
 import LoadingSkeleton from '@/components/LoadingSkeleton';
 import ErrorState from '@/components/ErrorState';
 import DeviceSelector from '@/components/DeviceSelector';
 import StatusCard from '@/components/StatusCard';
-import MapView from '@/components/MapView';
+
+const MapView = lazy(() => import('@/components/MapView'));
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -119,10 +120,11 @@ export default function App() {
                 />
               )}
             </aside>
-
-            <div className="flex-1 min-h-0" style={{ minHeight: '400px' }}>
+            <Suspense fallback={
+              <div className="flex-1 rounded-xl bg-[var(--color-skeleton)] animate-skeleton min-h-[400px]" />
+            }>
               <MapView position={position} darkMode={darkMode} />
-            </div>
+            </Suspense>
           </div>
         )}
       </main>
