@@ -53,33 +53,35 @@ export default function App() {
             aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             aria-checked={darkMode}
             role="switch"
-            className="relative w-14 h-7 rounded-full border border-[var(--color-border)]
-        bg-[var(--color-input-bg)] cursor-pointer outline-none
-        focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]
-        transition-colors duration-300"
+            className="relative w-12 h-6 rounded-full border border-[var(--color-border)]
+    bg-[var(--color-input-bg)] cursor-pointer outline-none
+    focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]
+    transition-colors duration-300"
           >
             <svg
-              width="14" height="14" viewBox="0 0 24 24" fill="none"
+              width="12" height="12" viewBox="0 0 24 24" fill="none"
               aria-hidden="true"
-              className={`absolute left-1.5 top-1/2 -translate-y-1/2 transition-opacity duration-300
-          ${darkMode ? 'opacity-40' : 'opacity-100'}`}
+              className={`absolute left-1 top-1/2 -translate-y-1/2 transition-opacity duration-300
+      ${darkMode ? 'opacity-40' : 'opacity-100'}`}
             >
               <circle cx="12" cy="12" r="5" stroke="var(--color-text-primary)" strokeWidth="1.5" />
               <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
                 stroke="var(--color-text-primary)" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
+
             <svg
-              width="14" height="14" viewBox="0 0 24 24" fill="none"
+              width="12" height="12" viewBox="0 0 24 24" fill="none"
               aria-hidden="true"
-              className={`absolute right-1.5 top-1/2 -translate-y-1/2 transition-opacity duration-300
-          ${darkMode ? 'opacity-100' : 'opacity-40'}`}
+              className={`absolute right-1 top-1/2 -translate-y-1/2 transition-opacity duration-300
+      ${darkMode ? 'opacity-100' : 'opacity-40'}`}
             >
               <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
                 stroke="var(--color-text-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <div className={`absolute top-0.5 w-6 h-6 rounded-full bg-[var(--color-accent)]
-        transition-transform duration-300
-        ${darkMode ? 'translate-x-7' : 'translate-x-0.5'}`}
+
+            <div className={`absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-[var(--color-accent)]
+    transition-transform duration-300
+    ${darkMode ? 'translate-x-6' : 'translate-x-0.5'}`}
             />
           </button>
           <span className={`hidden sm:inline-block text-[11px] font-semibold tracking-widest
