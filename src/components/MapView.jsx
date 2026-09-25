@@ -10,7 +10,7 @@ const TILES = {
   },
   dark: {
     url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   },
 };
 
@@ -71,14 +71,14 @@ function AnimatedMarker({ position, course, darkMode }) {
   );
 }
 
-export default function MapView({ position, darkMode }) {
+export default function MapView({ position, darkMode, className = '' }) {
   const defaultCenter = [4.711, -74.0721];
   const hasPosition = position?.latitude && position?.longitude;
   const tile = darkMode ? TILES.dark : TILES.light;
 
   return (
     <div
-      className={`w-full h-full rounded-xl overflow-hidden border border-[var(--color-border)] ${darkMode ? 'map-dark' : 'map-light'}`}
+      className={`w-full h-full rounded-xl overflow-hidden border border-[var(--color-border)] ${darkMode ? 'map-dark' : 'map-light'} ${className}`}
     >
       <MapContainer
         center={hasPosition ? [position.latitude, position.longitude] : defaultCenter}

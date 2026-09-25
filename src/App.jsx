@@ -121,9 +121,13 @@ export default function App() {
               )}
             </aside>
             <Suspense fallback={
-              <div className="flex-1 rounded-xl bg-[var(--color-skeleton)] animate-skeleton min-h-[400px]" />
+              <div className="w-full h-[55vh] md:flex-1 rounded-xl bg-[var(--color-skeleton)] animate-skeleton" />
             }>
-              <MapView position={position} darkMode={darkMode} />
+              <MapView
+                position={position}
+                darkMode={darkMode}
+                className="w-full h-[55vh] md:h-auto md:flex-1"
+              />
             </Suspense>
           </div>
         )}
